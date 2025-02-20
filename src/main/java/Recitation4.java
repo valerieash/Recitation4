@@ -18,12 +18,21 @@ public class Recitation4 {
      */
     public static String explode(String word){
         StringBuilder sb = new StringBuilder();
+        for (int index = 0; index < word.length(); index++) {
+            char ch = word.charAt(index);
 
-        // TODO: replace this line with your code
-
+            if (Character.isLetter(ch)) {
+                for (int j = 0; j <= index; j++) {
+                    sb.append(ch);
+                }
+            } else if (Character.isDigit(ch)) {
+                int num = Character.getNumericValue(ch);
+                for (int d = 0; d < num; d++)
+                    sb.append(ch);
+            } else {
+                sb.append(word.substring(0, index));
+            }
+        }
         return sb.toString();
     }
 }
-/*
-TODO: Replace this line with your algorithm
-*/
